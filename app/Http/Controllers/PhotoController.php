@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\photo;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -13,9 +13,13 @@ class PhotoController extends Controller
       if($request->hasFile('photo')){
             $filepath = $request->file('photo')->store('photos','public');
         }
-        $photo->photo = $filepath;
+        $photo->url = $filepath;
         $photo->save();
         return redirect('/');
+   }
+   public function show(){
+      Photo::all();
+      
    }
 
 }
