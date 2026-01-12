@@ -15,11 +15,12 @@ class PhotoController extends Controller
         }
         $photo->url = $filepath;
         $photo->save();
+        session()->flash('messege','Data inserted succesfully');
         return redirect('/');
    }
-   public function show(){
-      Photo::all();
-      
-   }
+  //  public function show(){
+  //   $showPhoto = Photo::all()-;
+
+  //  }
 
 }
